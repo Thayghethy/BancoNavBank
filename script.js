@@ -10,8 +10,8 @@
             for (let i = 0; i < users.length; i++){
                 if (users[i].nome === nomeUsuario && users[i].senha === senhaUsuario) {
                     return true
-                }   return false
-            }
+                }   
+            } return false
         }
 
         //INTERAÇÕES COM USUÁRIO
