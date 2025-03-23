@@ -209,6 +209,7 @@ form {
 .texto-emprestimos h2,
 .texto-seguro h2,
 .texto-seguro-vida h2 {
+    font-size: 1.5em;
     color: #fa6900;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.315);
 }
@@ -289,6 +290,7 @@ form {
 
 /*ABRA SUA CONTA*/
 .abrir-conta {
+    text-align: center;
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -302,71 +304,82 @@ form {
     font-size: 2em;
 }
 
-.abrir-conta-imagens {
+.abrir-conta-conteudo {
     display: flex;
     justify-content: center;
-    
-}
-
-.abrir-conta-imagens img{
-    width: 40%;
-    padding: 10px;
-    border-radius: 20px 0 20px 0 ;
-}
-
-.abrir-conta-textos {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 10px 0 10px 0;
-    width: 100%;
 }
 
-.abrir-conta-textos h2 {
-    color: #fa6900;
-}
-
-.texto-conta-pessoal,
-.texto-conta-empresarial {
+.conta-empresarial,
+.conta-pessoal{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 10%;
 }
 
-.texto-conta-empresarial p,
-.texto-conta-pessoal p {
+.conta-empresarial img,
+.conta-pessoal img {
+    width: 80%;
+    border-radius: 20px 0 20px 0;
+}
+
+.conta-empresarial h2,
+.conta-pessoal h2 {
+    color: #fa6900;
+    margin: 10px 0 10px 0;
+}
+
+.conta-empresarial p,
+.conta-pessoal p {
     color: black;
-    padding: 10px;
-    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.texto-conta-empresarial input,
-.texto-conta-pessoal input {
+.conta-empresarial input,
+.conta-pessoal input {
+    margin-bottom: 5px;
     border-top: none;
     border-left: none;
     border-right: none;
-    width: 40%;
-    height: 15px;
-    padding: 20px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.404);
+    text-align: center;
+    width: 200px;
+    height: 5vh;
 }
 
-.texto-conta-empresarial button,
-.texto-conta-pessoal button {
-    height: 30px;
-    width: 50%;
-    color: white;
-    background-color: #fa6900;
+.abrir-conta-botao {
+    height: 10vh;
+    width: 30%;
     border: none;
+    background-color: #fa6900;
+    color: white;
     border-radius: 10px;
     cursor: pointer;
-    margin-top: 5px;
 }
 
-.texto-conta-empresarial button:hover,
-.texto-conta-pessoal button:hover {
+.abrir-conta-botao:hover {
     background-color: #f38630;
     margin-left: 5px;
     transition: .3s ease-in;
+}
+/*RODAPÉ*/
+
+footer p {
+    background-color: #fa6900;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width:800px) {  
+    header a {
+        top: 80%;
+    }
+    
 }
