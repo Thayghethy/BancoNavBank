@@ -4,7 +4,7 @@
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
 }
-
+/*CABEÇALHO E BANNER INICIAL*/
 header {
     padding: 30px;
     text-align: center;
@@ -89,7 +89,201 @@ form {
     cursor: pointer;
 }
 #loginButton:hover {
-    background-color: #c22760;
+    background-color: #ff9100;
     /*box-shadow: 2px 2px 10px 2px #e81764;*/
     transition: .3s ease-in;
 }
+
+#nomeUsuario::placeholder,
+#usuarioSenha::placeholder {
+    color: black;
+    font-size: 1em;
+}
+
+/*SEÇÕES*/
+.cartao {
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff9100;
+    flex-wrap: wrap;
+    height: 100vh;
+    background-image: url('../Images/Cartao.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.titulo-cartao {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+}
+
+.titulo-cartao h1{  
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.37);
+}
+
+.titulo-cartao p {
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.37);
+}
+
+.titulo-cartao button {
+    text-align: center;
+    margin-top: 10px;
+    height: 30px;
+    width: 50%;
+    border: none;
+    background-color: #fa6900;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.imagem-cartao img {
+    margin: 0 auto 0 20px;
+    width: 30vw;
+    height: 45vh;
+    border-radius: 0 15px 0 15px;
+}
+/*SERVIÇOS*/
+
+.servicos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 30px auto 0 auto;
+}
+
+.servicos h1 {
+    font-size: 1.8em;
+    color: #fa6900;
+    padding: 10px;
+}
+.imagens-servicos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20;
+}
+
+.imagens-servicos img {
+    width: 30%;
+    padding: 5px;
+    border-radius: 20px 0 20px 0;
+}
+
+.texto-servicos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+}
+
+.texto-emprestimos,
+.texto-seguro,
+.texto-seguro-vida {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto-emprestimos h2,
+.texto-seguro h2,
+.texto-seguro-vida h2 {
+    color: #fa6900;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.315);
+}
+
+.texto-emprestimos p,
+.texto-seguro p,
+.texto-seguro-vida p{
+    line-height: 20px;
+    padding: 10px;
+}
+
+.eu-quero {
+    height: 30px;
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    background-color: #fa6900;
+    color: white;
+    cursor: pointer;
+}
+
+.eu-quero:hover {
+    margin-left: 5px;
+    transition: .3s ease-in;
+    background-color: #f38630;
+}
+
+/*NAVBLACK*/
+.navblack {
+    background-image: url('../Images/NavBlack.jpg');
+    background-position: center;
+    background-repeat: none;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+}
+
+.texto-navblack {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 40px;
+}
+
+.texto-navblack h1 {
+    color: #fa6900;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.295);
+    font-size: 2em;
+    padding: 2px;
+}
+
+.texto-navblack p {
+    color: white;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.295);
+    font-size: 1.5em;
+    padding: 5px;
+}
+
+.texto-navblack button {
+    height: 30px;
+    width: 50%;
+    background-color: #fa6900;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.texto-navblack button:hover {
+    background-color: #f38630;
+    transition: .3s ease-in;
+    margin-left: 5px;
+}
+
