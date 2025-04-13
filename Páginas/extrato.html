@@ -54,50 +54,40 @@
 
   <script>
     const tabela = document.getElementById("tabelaExtrato");
-
-    // Função para gerar transações fictícias iniciais
-    function gerarTransacoesIniciais() {
-      const transacoes = [
-        { data: '01/04/2025', descricao: 'Depósito inicial', valor: 5000 }
-      ];
-      localStorage.setItem('extrato', JSON.stringify(transacoes));
-      return transacoes;
-    }
-
-    // Pega o extrato do localStorage ou cria um novo
     function getExtrato() {
       const extrato = localStorage.getItem('extrato');
-      return extrato ? JSON.parse(extrato) : gerarTransacoesIniciais();
+      if (!extrato) {
+        const transacoes = [{
+          data: new Date().toLocaleDateString('pt-BR'),
+          descricao: 'Depósito inicial',
+          valor: 5000
+        }];
+        localStorage.setItem('extrato', JSON.stringify(transacoes));
+        return transacoes;
+      }
+      return JSON.parse(extrato);
     }
-
-    // Renderiza as linhas da tabela
     function renderizarExtrato() {
       const transacoes = getExtrato();
       tabela.innerHTML = '';
       transacoes.forEach(transacao => {
         const tr = document.createElement("tr");
-
         const tdData = document.createElement("td");
         tdData.textContent = transacao.data;
-
         const tdDescricao = document.createElement("td");
         tdDescricao.textContent = transacao.descricao;
-
         const tdValor = document.createElement("td");
-        tdValor.textContent = transacao.valor.toLocaleString('pt-br', {
+        tdValor.textContent = Number(transacao.valor).toLocaleString('pt-br', {
           style: 'currency',
           currency: 'BRL'
         });
-
         tr.appendChild(tdData);
         tr.appendChild(tdDescricao);
         tr.appendChild(tdValor);
-
         tabela.appendChild(tr);
       });
     }
-
     renderizarExtrato();
-  </script>
+   </script>
 </body>
 </html>
