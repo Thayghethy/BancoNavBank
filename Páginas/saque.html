@@ -89,20 +89,19 @@
                 if (valorSaque > saldo) {
                     alert("Valor maior que o saldo disponível!")
                     frm.valorSaque.value = ""
-                    valorSaque.focus()
+                    frm.valorSaque.focus()
+                    return
                 } else {
-                    let saldoAtual = Number(localStorage.getItem('saldo')) || 0;
-                    let valorSacado = valorSaque.value;
-
                     saldoAtual -= valorSacado;
-                    localStorage.setItem('sado', saldoAtual)
+                    localStorage.setItem('saldo', saldoAtual)
                     alert("Saque realizado com sucesso!")
                     atualizarSaldoTela()
+                    frm.reset()
                 }
             })
 
             function atualizarSaldoTela() {
-                const saldoAtual = parseFloat(localStorage.getItem('saldo', saldo)) || 0;
+                const saldoAtual = parseFloat(localStorage.getItem('saldo')) || 0;
                 saldoTela.innerText = saldoAtual.toLocaleString("pt-br", {
                     style: "currency",
                     currency: "BRL"
