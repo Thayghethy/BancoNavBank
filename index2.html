@@ -115,8 +115,9 @@
             }
             }
             //SALDO
-            let saldo = 5000
-            localStorage.setItem('saldo', saldo)
+            if (!localStorage.getItem('saldo')) {
+                localStorage.setItem('saldo', 5000)
+            }
     </script>
 </body>
 </html>
