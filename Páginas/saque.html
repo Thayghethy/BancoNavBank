@@ -20,6 +20,39 @@
         .saldo p {
             text-align: right;
             color: white;
+            margin-right: 5%;
+        }
+
+        .form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .formSaque {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        input {
+            margin-top: 15px;
+        }
+        .campoValorSaque {
+            width: 200px;
+            padding: 10px;
+        }
+
+        .formSaque button {
+            margin-top: 10px;
+            width: 200px;
+            border-radius: 5px;
+            background-color: #f38630;
+            color: white;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -28,17 +61,55 @@
         <div class="saldo">
             <p>Saldo atual: <span id="saldo"></span></p>   
         </div>
-        
+        <div class="form">
+            <form class="formSaque">
+                <p label="valor">Qual valor deseja sacar?</p>
+                <input type="number" name="valor" id="valorSaque" class="campoValorSaque" required placeholder="R$">
+                <button onclick="saque()">Sacar</button>
+            </form>
+
+        </div>
     </div>
     <script>
         const saldoTela = document.getElementById("saldo")
-        let saldo = 5000.00
 
-
-        saldoTela.innerText = saldo.toLocaleString('pt-BR', {
+        let saldo = Number(localStorage.getItem('saldo')) || 0;
+        saldoTela.innerText = saldo.toLocaleString('pt-br', {
             style: 'currency',
             currency: 'BRL'
         })
+
+        function saque() {
+            const frm = document.querySelector("form")
+
+            frm.addEventListener("submit", (e) => {
+                e.preventDefault()
+                const valorSaque = document.getElementById('valorSaque').value
+
+                if (valorSaque > saldo) {
+                    alert("Valor maior que o saldo disponível!")
+                    frm.valorSaque.value = ""
+                    valorSaque.focus()
+                } else {
+                    let saldoAtual = Number(localStorage.getItem('saldo')) || 0;
+                    let valorSacado = valorSaque.value;
+
+                    saldoAtual -= valorSacado;
+                    localStorage.setItem('sado', saldoAtual)
+                    alert("Saque realizado com sucesso!")
+                    atualizarSaldoTela()
+                }
+            })
+
+            function atualizarSaldoTela() {
+                const saldoAtual = parseFloat(localStorage.getItem('saldo', saldo)) || 0;
+                saldoTela.innerText = saldoAtual.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL"
+                })
+            }
+
+        }
     </script>
 </body>
 </html>
