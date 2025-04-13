@@ -12,8 +12,8 @@
 <body>
     <header>
         <div class="nomeBanco">
-            <img src="Images/menu.png" alt="burger" class="burger" id="burger" onclick="open()">
-            <img src="Images/close.png" alt="close" class="close" id="close" onclick="open()">
+            <img src="Images/menu.png" alt="burger" class="burger" id="burger" onclick="openMenu()">
+            <img src="Images/close.png" alt="close" class="close" id="close" onclick="openMenu()">
             <h1>NavBank - Internet Banking</h1>
             <p id="boasVindas"></p>
             <img src="Images/logout.png" alt="logout" onclick="logoff()">
@@ -98,7 +98,7 @@
                 window.location.href = "index.html"
             }
             //MENU
-            function open() {
+            function openMenu() {
             const burger = document.getElementById('burger')
             const close = document.getElementById('close')
             const nav = document.querySelector('aside')
@@ -113,7 +113,9 @@
                 close.style.display = 'none'
             }
             }
-            
+            //SALDO
+            let saldo = 5000
+            localStorage.setItem('saldo', saldo)
     </script>
 </body>
 </html>
