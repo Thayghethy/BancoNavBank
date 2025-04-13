@@ -12,23 +12,108 @@
 <body>
     <header>
         <div class="nomeBanco">
+            <img src="Images/menu.png" alt="burger" class="burger" id="burger" onclick="open()">
+            <img src="Images/close.png" alt="close" class="close" id="close" onclick="open()">
             <h1>NavBank - Internet Banking</h1>
-        </div>
-        <div class="logoff">
-            <a href="index.html">Logoff</a>
+            <p id="boasVindas"></p>
+            <img src="Images/logout.png" alt="logout" onclick="logoff()">
         </div>
     </header>
-    <aside>
+    <aside id="menu">
         <nav class="navbar">
             <ul class="navbar-links">
-                <li><button>Saque</button></li>
-                <li><button>Extrato</button></li>
-                <li><button>Tranferências</button></li>
-                <li><button>Cartão De Crédito</button></li>
-                <li><button>Empréstimos</button></li>
+                <li><button onclick="abreSaldo()">Saque</button></li>
+                <li><button onclick="abreExtrato()">Extrato</button></li>
+                <li><button onclick="abreTransf()">Tranferências</button></li>
+                <li><button onclick="abreCartaoCredito()">Cartão De Crédito</button></li>
+                <li><button onclick="abreEmprestimos()">Empréstimos</button></li>
+                <li><button onclick="logoff()" class="logoffMobile">Logoff</button></li>
             </ul>
         </nav>
     </aside>
+    <main>
+        <iframe src="Páginas/saque.html" frameborder="0" id="saque"></iframe>
+        <iframe src="Páginas/extrato.html" frameborder="0" id="extrato"></iframe>
+        <iframe src="Páginas/transferencias.html" frameborder="0" id="transferencias"></iframe>
+        <iframe src="Páginas/cartaoCredito.html" frameborder="0" id="cartaoCredito"></iframe>
+        <iframe src="Páginas/emprestimos.html" frameborder="0" id="emprestimos"></iframe>
+    </main>
     <script src="script.js"></script>
+    <script>
+            const saudacao = document.getElementById("boasVindas");
+
+            const nomeUsuario = sessionStorage.getItem("usuarioLogado")
+
+            if (nomeUsuario) {
+                saudacao.innerText = `Seja bem-vindo, ${nomeUsuario}!\n`
+            } else {
+                window.location.href="index.html"
+            }
+
+            //FUNÇÕES DOS IFRAMES
+            const saque = document.getElementById("saque")
+            const extrato = document.getElementById("extrato")
+            const transf = document.getElementById("transferencias")
+            const cartaoCredito = document.getElementById("cartaoCredito")
+            const emprestimo = document.getElementById("emprestimos")
+
+            function abreSaldo(){
+                saque.style.display = "block"
+                extrato.style.display = "none"
+                transf.style.display = "none"
+                cartaoCredito.style.display = "none"
+                emprestimo.style.display = "none"
+            }
+            function abreExtrato() {
+                saque.style.display = "none"
+                extrato.style.display = "block"
+                transf.style.display = "none"
+                cartaoCredito.style.display = "none"
+                emprestimo.style.display = "none"
+            }
+            function abreTransf() {
+                saque.style.display = "none"
+                extrato.style.display = "none"
+                transf.style.display = "block"
+                cartaoCredito.style.display = "none"
+                emprestimo.style.display = "none"
+            }
+            function abreCartaoCredito() {
+                saque.style.display = "none"
+                extrato.style.display = "none"
+                transf.style.display = "none"
+                cartaoCredito.style.display = "block"
+                emprestimo.style.display = "none"
+            }
+
+            function abreEmprestimos() {
+                saque.style.display = "none"
+                extrato.style.display = "none"
+                transf.style.display = "none"
+                cartaoCredito.style.display = "none"
+                emprestimo.style.display = "block"
+            }
+            function logoff() {
+                sessionStorage.clear()
+                window.location.href = "index.html"
+            }
+            //MENU
+            function open() {
+            const burger = document.getElementById('burger')
+            const close = document.getElementById('close')
+            const nav = document.querySelector('aside')
+
+            nav.classList.toggle('open')
+
+            if (nav.classList.contains('open')) {
+                burger.style.display = 'none'
+                close.style.display = 'block'
+            } else {
+                burger.style.display = 'block'
+                close.style.display = 'none'
+            }
+            }
+            
+    </script>
 </body>
 </html>
