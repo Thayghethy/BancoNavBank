@@ -76,10 +76,10 @@
         const saldoTela = document.getElementById("saldo");
         const form = document.getElementById("formSaque");
 
-        // Carrega o saldo atual da memória local
+      
         let saldo = Number(localStorage.getItem('saldo')) || 0;
 
-        // Mostra o saldo na tela
+        
         function atualizarSaldoTela() {
             saldoTela.innerText = saldo.toLocaleString('pt-br', {
                 style: 'currency',
@@ -105,11 +105,11 @@
                 return;
             }
 
-            // Atualiza o saldo
+            
             saldo -= valorSaque;
             localStorage.setItem('saldo', saldo);
 
-            // Atualiza a tela
+          
             atualizarSaldoTela();
 
             alert("Saque realizado com sucesso!");
