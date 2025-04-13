@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>saque-NavBank</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif ;
+            box-sizing: border-box;
+        }
+
+        .saldo {
+            background-color: #f38630;
+        }
+
+        .saldo p {
+            text-align: right;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="saldo">
+            <p>Saldo atual: <span id="saldo"></span></p>   
+        </div>
+        
+    </div>
+    <script>
+        const saldoTela = document.getElementById("saldo")
+        let saldo = 5000.00
+
+
+        saldoTela.innerText = saldo.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        })
+    </script>
+</body>
+</html>
