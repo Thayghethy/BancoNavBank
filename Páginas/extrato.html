@@ -36,10 +36,24 @@
     tr:nth-child(even) {
       background-color: #f9f9f9;
     }
+
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header img {
+        padding: 30px;
+        cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <h2>Extrato de Transações</h2>
+  <header>
+      <h2>Extrato de Transações</h2>
+      <img src="../Images/refresh.png" alt="recarrega" onclick="recarregaPagina()">
+  </header>
   <table>
     <thead>
       <tr>
@@ -88,6 +102,10 @@
       });
     }
     renderizarExtrato();
+
+    function recarregaPagina() {
+        location.reload()
+    }
    </script>
 </body>
 </html>
