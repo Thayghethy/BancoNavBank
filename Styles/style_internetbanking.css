@@ -36,6 +36,8 @@ header {
 }
 
 .close {
+    width: 30px;
+    padding: 20px;
     display: none;
     cursor: pointer;
 }
@@ -64,12 +66,14 @@ aside {
     position: absolute;
     left: -100;
     opacity: 0;
+    z-index: 10;
+    transition: left 0.4s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
 }
 
 aside.open {
-    left: 5%;
+    left: 0;
     opacity: 1;
-    transition: .3s ease-in-out;
 }
 
 .navbar {
@@ -120,6 +124,6 @@ iframe {
     display: none;
     position: absolute;
     right: 0;
-    width: 88vw;
+    width: 100vw;
     height: 100vh;
 }
