@@ -108,6 +108,20 @@
             
             saldo -= valorSaque;
             localStorage.setItem('saldo', saldo);
+            // Salva a transação de saque no extrato
+            const extrato = JSON.parse(localStorage.getItem('extrato')) || [{
+             data: new Date().toLocaleDateString('pt-BR'),
+             descricao: 'Depósito inicial',
+             valor: 5000
+            }];
+            const hoje = new Date();
+            const dataFormatada = hoje.toLocaleDateString('pt-BR');
+            extrato.push({
+             data: dataFormatada,
+             descricao: 'Saque',
+             valor: -valorSaque
+            });
+            localStorage.setItem('extrato', JSON.stringify(extrato));
 
           
             atualizarSaldoTela();
@@ -116,6 +130,8 @@
 
             form.reset();
         });
+
+        
     </script>
 </body>
 </html>
