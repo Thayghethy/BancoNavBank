@@ -47,6 +47,11 @@
         padding: 30px;
         cursor: pointer;
     }
+
+    tfoot td {
+      font-weight: bold;
+      background-color: #f1f1f1;
+    }
   </style>
 </head>
 <body>
@@ -64,10 +69,18 @@
     </thead>
     <tbody id="tabelaExtrato">
     </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Saldo Atual</td>
+        <td id="saldoAtual"></td>
+      </tr>
+    </tfoot>
   </table>
 
   <script>
     const tabela = document.getElementById("tabelaExtrato");
+    const saldoAtualElemento = document.getElementById("saldoAtual");
+
     function getExtrato() {
       const extrato = localStorage.getItem('extrato');
       if (!extrato) {
@@ -81,9 +94,12 @@
       }
       return JSON.parse(extrato);
     }
+
     function renderizarExtrato() {
       const transacoes = getExtrato();
       tabela.innerHTML = '';
+      let saldo = 0;
+
       transacoes.forEach(transacao => {
         const tr = document.createElement("tr");
         const tdData = document.createElement("td");
@@ -95,17 +111,24 @@
           style: 'currency',
           currency: 'BRL'
         });
+        saldo += Number(transacao.valor);
         tr.appendChild(tdData);
         tr.appendChild(tdDescricao);
         tr.appendChild(tdValor);
         tabela.appendChild(tr);
       });
+
+      saldoAtualElemento.textContent = saldo.toLocaleString('pt-br', {
+        style: 'currency',
+        currency: 'BRL'
+      });
     }
+
     renderizarExtrato();
 
     function recarregaPagina() {
-        location.reload()
+        location.reload();
     }
-   </script>
+  </script>
 </body>
 </html>
